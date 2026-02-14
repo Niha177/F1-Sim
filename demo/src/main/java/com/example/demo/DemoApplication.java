@@ -19,17 +19,12 @@ public class DemoApplication {
 	RaceSimulator simulator = new RaceSimulator();
 
     @GetMapping("/simulate")
-    public String simulate(
-            @RequestParam(required = false) String driverName,
-            @RequestParam(required = false) String trackName,
-            @RequestParam(required = false) Integer year
-    ) {
-		 System.out.println("Driver: [" + driverName + "]");
-    System.out.println("Track: [" + trackName + "]");
-    System.out.println("Year: [" + year + "]");
+    public String simulate(@RequestParam String driverName, @RequestParam String trackName, @RequestParam Integer year) {
+		// System.out.println("Driver: [" + driverName + "]");
+    //System.out.println("Track: [" + trackName + "]");
+    //System.out.println("Year: [" + year + "]");
 
 	
-        // Validate parameters manually so we can return friendly messages instead of HTTP 400
         if (driverName == null || driverName.isBlank() || trackName == null || trackName.isBlank() || year == null) {
             return "Missing required query parameters. Usage: /simulate?driverName=NAME&trackName=TRACK&year=YYYY";
         }
