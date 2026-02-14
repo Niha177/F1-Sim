@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>F1 Simulator</title>
+</head>
+<body>
+
+<h1>F1 Simulator</h1>
+
+<select id="driverName">
+    <option value="Lewis Hamilton">Lewis Hamilton</option>
+    <option value="Max Verstappen">Max Verstappen</option>
+</select>
+
+<select id="trackName">
+    <option value="Monaco">Monaco</option>
+    <option value="Silverstone">Silverstone</option>
+</select>
+
+<label>Year:</label>
+<input type="number" id="year" value="2023">
+
+<button onclick="runSimulation()">Simulate</button>
+
+<p id="result"></p>
+
+<script src="script.js"></script>
+</body>
+</html>

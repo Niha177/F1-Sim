@@ -1,0 +1,134 @@
+Name,Team,Skill,Year
+Lewis Hamilton,Mercedes,0.970,2018
+Valtteri Bottas,Mercedes,0.980,2018
+Sebastian Vettel,Ferrari,0.975,2018
+Kimi Räikkönen,Ferrari,0.985,2018
+Daniel Ricciardo,Red Bull,0.975,2018
+Max Verstappen,Red Bull,0.973,2018
+Sergio Pérez,Force India,0.988,2018
+Esteban Ocon,Force India,0.990,2018
+Lance Stroll,Williams,1.015,2018
+Sergey Sirotkin,Williams,1.018,2018
+Nico Hülkenberg,Renault,0.990,2018
+Carlos Sainz,Renault,0.993,2018
+Pierre Gasly,Toro Rosso,0.993,2018
+Brendon Hartley,Toro Rosso,1.000,2018
+Romain Grosjean,Haas,1.002,2018
+Kevin Magnussen,Haas,1.002,2018
+Fernando Alonso,McLaren,0.985,2018
+Stoffel Vandoorne,McLaren,0.995,2018
+Marcus Ericsson,Sauber,1.015,2018
+Charles Leclerc,Sauber,0.993,2018
+Lewis Hamilton,Mercedes,0.968,2019
+Valtteri Bottas,Mercedes,0.978,2019
+Sebastian Vettel,Ferrari,0.974,2019
+Charles Leclerc,Ferrari,0.980,2019
+Max Verstappen,Red Bull,0.971,2019
+Alexander Albon,Red Bull,0.982,2019
+Sergio Pérez,Racing Point,0.985,2019
+Lance Stroll,Racing Point,0.993,2019
+Carlos Sainz,McLaren,0.985,2019
+Lando Norris,McLaren,0.988,2019
+Pierre Gasly,Toro Rosso,0.990,2019
+Daniil Kvyat,Toro Rosso,0.995,2019
+Romain Grosjean,Haas,1.002,2019
+Kevin Magnussen,Haas,1.002,2019
+Daniel Ricciardo,Renault,0.975,2019
+Nico Hülkenberg,Renault,0.990,2019
+Kimi Räikkönen,Alfa Romeo,0.985,2019
+Antonio Giovinazzi,Alfa Romeo,1.000,2019
+George Russell,Williams,0.998,2019
+Nicholas Latifi,Williams,1.015,2019
+Lewis Hamilton,Mercedes,0.967,2020
+Valtteri Bottas,Mercedes,0.978,2020
+Max Verstappen,Red Bull,0.970,2020
+Sergio Pérez,Racing Point,0.985,2020
+Lance Stroll,Racing Point,0.993,2020
+Charles Leclerc,Ferrari,0.978,2020
+Carlos Sainz,Ferrari,0.980,2020
+Daniel Ricciardo,Renault,0.975,2020
+Esteban Ocon,Renault,0.980,2020
+Lando Norris,McLaren,0.985,2020
+George Russell,Mercedes,0.980,2020
+Kimi Räikkönen,Alfa Romeo,0.985,2020
+Antonio Giovinazzi,Alfa Romeo,1.000,2020
+Pierre Gasly,AlphaTauri,0.985,2020
+Yuki Tsunoda,AlphaTauri,0.990,2020
+Romain Grosjean,Haas,1.002,2020
+Kevin Magnussen,Haas,1.002,2020
+Lewis Hamilton,Mercedes,0.965,2021
+Valtteri Bottas,Mercedes,0.977,2021
+Max Verstappen,Red Bull,0.969,2021
+Sergio Pérez,Red Bull,0.982,2021
+Lando Norris,McLaren,0.983,2021
+Daniel Ricciardo,McLaren,0.980,2021
+Charles Leclerc,Ferrari,0.976,2021
+Carlos Sainz,Ferrari,0.979,2021
+George Russell,Mercedes,0.975,2021
+Nicholas Latifi,Williams,1.015,2021
+Pierre Gasly,AlphaTauri,0.985,2021
+Yuki Tsunoda,AlphaTauri,0.990,2021
+Mick Schumacher,Haas,1.002,2021
+Nikita Mazepin,Haas,1.005,2021
+Lewis Hamilton,Mercedes,0.964,2022
+George Russell,Mercedes,0.975,2022
+Max Verstappen,Red Bull,0.967,2022
+Sergio Pérez,Red Bull,0.980,2022
+Charles Leclerc,Ferrari,0.975,2022
+Carlos Sainz,Ferrari,0.978,2022
+Lando Norris,McLaren,0.982,2022
+Daniel Ricciardo,McLaren,0.980,2022
+Pierre Gasly,AlphaTauri,0.985,2022
+Yuki Tsunoda,AlphaTauri,0.990,2022
+Mick Schumacher,Haas,1.002,2022
+Kevin Magnussen,Haas,1.002,2022
+Zhou Guanyu,Alfa Romeo,0.985,2022
+Valtteri Bottas,Alfa Romeo,0.980,2022
+Lance Stroll,Aston Martin,0.995,2022
+Fernando Alonso,Aston Martin,0.980,2022
+Lewis Hamilton,Mercedes,0.963,2023
+George Russell,Mercedes,0.974,2023
+Max Verstappen,Red Bull,0.966,2023
+Sergio Pérez,Red Bull,0.979,2023
+Charles Leclerc,Ferrari,0.974,2023
+Carlos Sainz,Ferrari,0.977,2023
+Lando Norris,McLaren,0.981,2023
+Oscar Piastri,McLaren,0.979,2023
+Pierre Gasly,AlphaTauri,0.985,2023
+Yuki Tsunoda,AlphaTauri,0.990,2023
+Zhou Guanyu,Alfa Romeo,0.985,2023
+Valtteri Bottas,Alfa Romeo,0.980,2023
+Lance Stroll,Aston Martin,0.995,2023
+Fernando Alonso,Aston Martin,0.980,2023
+Kevin Magnussen,Haas,1.002,2023
+Nico Hülkenberg,Haas,0.998,2023
+Lewis Hamilton,Ferrari,0.962,2024
+George Russell,Mercedes,0.973,2024
+Max Verstappen,Red Bull,0.965,2024
+Sergio Pérez,Red Bull,0.978,2024
+Charles Leclerc,Ferrari,0.973,2024
+Carlos Sainz,Ferrari,0.976,2024
+Lando Norris,McLaren,0.980,2024
+Oscar Piastri,McLaren,0.978,2024
+Lance Stroll,Aston Martin,0.995,2024
+Fernando Alonso,Aston Martin,0.979,2024
+Pierre Gasly,Alpine,0.984,2024
+Yuki Tsunoda,AlphaTauri,0.989,2024
+Kevin Magnussen,Haas,1.002,2024
+Nico Hülkenberg,Haas,0.998,2024
+Zhou Guanyu,Alfa Romeo,0.985,2024
+Lewis Hamilton,Ferrari,0.961,2025
+George Russell,Mercedes,0.972,2025
+Max Verstappen,Red Bull,0.964,2025
+Sergio Pérez,Red Bull,0.977,2025
+Charles Leclerc,Ferrari,0.972,2025
+Oscar Piastri,McLaren,0.977,2025
+Lando Norris,McLaren,0.978,2025
+Lance Stroll,Aston Martin,1.005,2025
+Fernando Alonso,Aston Martin,0.978,2025
+Pierre Gasly,Alpine,0.985,2025
+Yuki Tsunoda,AlphaTauri,0.988,2025
+Kevin Magnussen,Haas,1.002,2025
+Oliver Bearman,Haas,0.990,2025
+Kimi Antonelli,Mercedes,0.985,2025
+Zhou Guanyu,Alfa Romeo,0.985,2025
