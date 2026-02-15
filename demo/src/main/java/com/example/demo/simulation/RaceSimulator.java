@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.sound.midi.Track;
+
 
 public class RaceSimulator {
     private List<Driver> drivers;
@@ -23,7 +23,9 @@ public class RaceSimulator {
     private List<Tracks> tracks;
     private List<Tire> tires;
 
-    private Map<String, Map<Integer, Driver>> driverYearMap;
+    private List<String> tireChoices;
+
+    //private Map<String, Map<Integer, Driver>> driverYearMap;
 /* 
     private void driverYearMap() {
 
@@ -58,6 +60,22 @@ public class RaceSimulator {
 
     public List<Tracks> getTracks() {
         return tracks;
+    }
+    public List<String> getTireChoices() {
+        return tireChoices;
+    }
+    public void setTireChoices(List<String> tiresRecieved) {
+        // assign the incoming list reference directly (the JSON->List produced by
+        // Spring will typically be an ArrayList). Add a small log so we can
+        // verify at runtime that the simulator received the exact object.
+        if (tiresRecieved == null) {
+            this.tireChoices = new ArrayList<>();
+            System.out.println("RaceSimulator: set empty tireChoices (null received)");
+        } else {
+            this.tireChoices = tiresRecieved;
+            System.out.println("RaceSimulator: tireChoices set to -> " + this.tireChoices
+                + " (class: " + this.tireChoices.getClass().getName() + ")");
+        }
     }
     // ----------------------------------------------------------
     public double predictTimeSkill(String driverName, String trackName, int year) {
@@ -121,12 +139,23 @@ public List<Strategy> getStintDefault(Tracks track, Team team, Strategy tireChoi
 
 return stint;
 }
-public double predictAllFactors(String driverName, String trackName, String team, String weather, int year) {
+//public double predictAllFactors(String driverName, String trackName, String team, String weather, int year) {
     // default: soft tires, 1 pit stop
-    return predictAllFactors(driverName, trackName, team, weather, year, "soft", 1);
-}
+    //return predictAllFactors(driverName, trackName, team, weather, year, "soft", 1);
+    //return 0;
+//}
 
-public double predictAllFactors(String driverName, String trackName, String team, String weather, int year, String tireType, int pitStops) {
+
+
+public double predictAllFactors(String driverName, String trackName, String team, 
+    String weather, int year, int pitStops) {
+
+        //tires = tireChoices;
+
+    //Tire t = new Tire();
+
+   
+    
     double laptime = 0;
 
     double weatherMod = 1;
@@ -139,7 +168,7 @@ public double predictAllFactors(String driverName, String trackName, String team
     boolean flagdriver = false;
     boolean flagtrack = false;
     boolean flagteam = false;
-    boolean flagtire = false;
+   // boolean flagtire = false;
 
     if (weather != null) {
         if (weather.equalsIgnoreCase("dry")) {
@@ -168,16 +197,12 @@ public double predictAllFactors(String driverName, String trackName, String team
     }
 
     for (Team te : teams) {
-        // match teams leniently (allow 'Red Bull Racing' vs 'Red Bull')
-        String a = normalize(te.getName());
-        String b = normalize(team);
-        if (a.contains(b) || b.contains(a)) {
+        if(te.getName().equalsIgnoreCase(team)) {
             selectedTeam = te;
             flagteam = true;
-            break;
         }
     }
-
+/*
     if (tireType != null) {
         switch (tireType.toLowerCase()) {
             case "soft":
@@ -194,19 +219,21 @@ public double predictAllFactors(String driverName, String trackName, String team
         }
         flagtire = true;
     }
+        */
 
-    if (flagdriver && flagteam && flagtrack && flagtire) {
+    if (flagdriver && flagteam && flagtrack) {
         if (selectedDriver.getDriverYear() != year) {
             throw new IllegalArgumentException("Driver data does not match requested year");
         }
 
-        // create tire choices list (pitStops + 1 entries)
-        List<Tire> tireChoices = new ArrayList<>();
-        for (int i = 0; i < pitStops + 1; i++) {
-            tireChoices.add(selectedTire);
-        }
+        // prepare a list of tire names for setPlan; if the simulator hasn't
+        // received any tire choices from the frontend, fall back to a default
+        // list (all "medium") of length pitStops + 1 so setPlan does not NPE.
+        List<String> planTireNames = this.tireChoices;
+        
 
-        List<Strategy> strat = setPlan(pitStops, selectedTrack, tireChoices);
+        List<Strategy> strat = setPlan(pitStops, selectedTrack, planTireNames);
+        
 
         for (int x = 0; x < strat.size(); x++) {
             double numLaps = strat.get(x).getLaps();
@@ -238,12 +265,13 @@ public double racePositions(String trackName, int year) {
     //simulator.testCsvAccess(); 
     System.out.println(simulator.predictTimeSkill("Max Verstappen", "Monaco", 2018));
    System.out.println(simulator.predictTimeSkill("Max Verstappen", "Monaco", 2025));
-   List<Tire> myTires = new ArrayList<>();
-   myTires.add(addHardTire());
-   myTires.add(addMediumTire());
-   myTires.add(addSoftTire());
 
-    System.out.println(simulator.predictAllFactors("Max Verstappen", "Monaco", "Red Bull Racing", "dry", 2025));
+   //System.out.println(tireChoices.toString());
+   RaceSimulator sim = new RaceSimulator();
+   
+
+    System.out.println(simulator.predictAllFactors("Max Verstappen",
+     "Monaco", "Red Bull", "wet", 2025, 2));
 
    
 
@@ -252,9 +280,5 @@ public double racePositions(String trackName, int year) {
     //simulator.predictTimeSkill("Lewis Hamilton", "Monza");
 }
 
-    // Helper to normalize names for tolerant matching (remove non-alphanumeric and lower-case)
-    private static String normalize(String s) {
-        if (s == null) return "";
-        return s.replaceAll("[^A-Za-z0-9]", "").toLowerCase();
-    }
+    
 }

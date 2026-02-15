@@ -6,7 +6,7 @@ import java.util.List;
 public class Tire {
     private String type;
     private double degradationRate;
-    private List<Tire> tires;
+    private static List<Tire> tires;
 
     public Tire(String type, double degradationRate) {
         this.type = type;
@@ -32,17 +32,29 @@ public class Tire {
     public static Tire addHardTire() {
         return new Tire("Hard", 0.32);
     }
-    public List<Tire> getTires() {
+    public static List<Tire> getTires() {
         return tires;
     }
 
       public void addTire(Tire tire) { // add a tire to this Tire's tire list (strategy)
-        if (this.tires == null) {
-            this.tires = new ArrayList<>();
+        if (tires == null) {
+            tires = new ArrayList<>();
         }
-        this.tires.add(tire);
+        tires.add(tire);
         //implement frontend input for tire choice and pit stop number, then use that to determine the tires to add to the strategy
         
+    }
+    public static Tire creatTires(String type) {
+        switch (type.toLowerCase()) {
+            case "soft":
+                return addSoftTire();
+            case "medium":
+                return addMediumTire();
+            case "hard":
+                return addHardTire();
+            default:
+                throw new IllegalArgumentException("Invalid tire type: " + type);
+        }
     }
 
     public static List<Tire> tireOnePitStop(Tire tireChoice, Tire tireChoice2) {

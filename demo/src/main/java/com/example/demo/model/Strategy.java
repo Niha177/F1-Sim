@@ -93,7 +93,9 @@ public class Strategy {
     }
         */
 
-    public static List<Strategy> setPlan(int pitStops, Tracks track, List<Tire> tires) {
+    public static List<Strategy> setPlan(int pitStops, Tracks track, List<String> tires) {
+//testing
+
         List<Strategy> stint = new ArrayList<>();
 
         if (pitStops > 5) {
@@ -110,7 +112,21 @@ public class Strategy {
         int remainder = track.getLaps() % numTires;
 
         for(int x = 0; x < numTires; x++) {
-            double tirewear = tires.get(x).getDegradationRate();
+
+            Tire tireChoice = null;
+            if(tires.get(x).equalsIgnoreCase("soft")) {
+                tireChoice = Tire.addSoftTire();
+            } else if(tires.get(x).equalsIgnoreCase("medium")) {
+                tireChoice = Tire.addMediumTire();
+            } else if(tires.get(x).equalsIgnoreCase("hard")) {
+                tireChoice = Tire.addHardTire();
+            } else {
+                throw new IllegalArgumentException("Invalid tire type: " + tires.get(x));
+            }
+
+
+
+            double tirewear = tireChoice.getDegradationRate();
             int lapNumber = track.getLaps() / (pitStops + 1);
 
             while(remainder > 0) {
@@ -119,13 +135,29 @@ public class Strategy {
             }
             
              
-            Strategy strategy = new Strategy(lapNumber, tires.get(x), tirewear);
+            Strategy strategy = new Strategy(lapNumber, tireChoice, tirewear);
             stint.add(strategy);
         }
        // Strategy strategy = new Strategy(0, null, 0);
 
         return stint;
     }
-    
+
+    public static void main(String[] args) {
+        // Example usage of the Strategy class
+        Tracks track = new Tracks("Monaco", 75.0, 78);
+        Tire softTire = Tire.addSoftTire();
+        Tire mediumTire = Tire.addMediumTire();
+        Tire hardTire = Tire.addHardTire();
+
+        List<Tire> tires = new ArrayList<>();
+        tires.add(softTire);
+        tires.add(mediumTire);
+        tires.add(hardTire);
+
+       
+
+       
+    }
     
 }

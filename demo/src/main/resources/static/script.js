@@ -16,3 +16,45 @@ function runSimulation() {
         })
         .catch(error => console.error("Error:", error));
 }
+        
+function runSim() {
+    const tires = Array.from(document.querySelectorAll(".tire-select")).map(s => s.value);
+
+    const data = {
+        driverName: document.getElementById("MADriverName").value.trim(),
+        trackName: document.getElementById("MATrackName").value.trim(),
+        team: document.getElementById("MATeamName").value.trim(),
+        weather: document.getElementById("Weather").value.trim(),
+        year: parseInt(document.getElementById("MAyear").value),       // number
+        pitStops: parseInt(document.getElementById("Pit").value),     // number
+        tires: tires
+    };
+
+    console.log("Sending to backend:", data);
+
+    fetch("/simulater", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.text())
+    .then(result => document.getElementById("result").innerText = result)
+    .catch(error => console.error("Error:", error));
+}
+
+/*function runSim() {
+
+    const tires = [];
+
+    const selects = document.querySelectorAll(".tire-select");
+
+    selects.forEach(select => {
+        tires.push(select.value);
+    });
+
+    console.log(tires);
+}
+    */
+

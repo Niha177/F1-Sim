@@ -7,6 +7,7 @@
 
 <h1>F1 Simulator</h1>
 
+<!-- Single lap time simulation -->
 <select id="driverName">
     <option value="Lewis Hamilton">Lewis Hamilton</option>
     <option value="Max Verstappen">Max Verstappen</option>
@@ -24,6 +25,53 @@
 
 <p id="result"></p>
 
+<hr>
+
+<!-- Full race simulation -->
+<h2>Total Lap Time</h2>
+
+<select id="MATrackName">
+    <option value="Monaco">Monaco</option>
+    <option value="Silverstone">Silverstone</option>
+</select>
+
+<select id="MADriverName">
+    <option value="Lewis Hamilton">Lewis Hamilton</option>
+    <option value="Max Verstappen">Max Verstappen</option>
+</select>
+
+<select id="MATeamName">
+    <option value="Red Bull">Red Bull</option>
+    <option value="Mercedes">Mercedes</option>
+</select>
+
+<select id="Weather">
+    <option value="Wet">Wet</option>
+    <option value="Dry">Dry</option>
+</select>
+
+<label>Year:</label>
+<input type="number" id="MAyear" value="2023">
+
+<label>Pit Stops:</label>
+<input type="number" id="Pit" value="1">
+
+<h3>Tires for each stint</h3>
+<select class="tire-select">
+    <option value="Soft">Soft</option>
+    <option value="Medium">Medium</option>
+    <option value="Hard">Hard</option>
+</select>
+
+<select class="tire-select">
+    <option value="Soft">Soft</option>
+    <option value="Medium">Medium</option>
+    <option value="Hard">Hard</option>
+</select>
+
+<button onclick="runSim()">Run</button>
+
+<!-- link to external JS -->
 <script src="script.js"></script>
 </body>
 </html>

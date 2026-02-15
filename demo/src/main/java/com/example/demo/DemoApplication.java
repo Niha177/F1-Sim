@@ -1,11 +1,20 @@
 package com.example.demo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.model.Strategy;
+import com.example.demo.model.Tire;
+import com.example.demo.model.Tracks;
+import com.example.demo.simulation.RaceRequest;
 import com.example.demo.simulation.RaceSimulator;
 
 @SpringBootApplication
@@ -44,5 +53,42 @@ public class DemoApplication {
 
         return "Predicted lap time for " + driverName + " on " + trackName + " in " + yearInt + ": " + predictedTime + " seconds.";
     }
+
+    @GetMapping("/simulater")
+public void simulate(@RequestParam String tires) {
+
+    List<String> tireList = new ArrayList<>();
+
+    String[] selectedTires = tires.split(",");
+
+    for (String tire : selectedTires) {
+        tireList.add(tire);
+    }
+
+    System.out.println(tireList);
+}
+
+@PostMapping("/simulater")
+    public String simulater(@RequestBody RaceRequest request) {
+
+       simulator.setTireChoices(request.getTires());
+
+    double result = simulator.predictAllFactors(
+            request.getDriverName(),
+            request.getTrackName(),
+            request.getTeam(),
+            request.getWeather(),
+            request.getYear(),
+            request.getPitStops()
+    );
+
+    return "Race time: " + result;
+
+        //return "Received tires successfully!";
+    }
+
+
+
+
 
 }
